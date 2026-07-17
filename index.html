@@ -4,566 +4,103 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Aarian Health — Human Connection, Tech-Powered Change</title>
-<meta name="description" content="Aarian Health is a delivery consultancy for healthcare launches and growth. Strategy and delivery for the sales and marketing leaders, organisations and researchers shaping healthcare in Australia.">
-
-<!-- Type matches PharmaCampaigns: Cambon (headings), Inter (body), Jura (labels). -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Jura:wght@500;600;700&display=swap" rel="stylesheet">
-
-<style>
-  /* Type: matches PharmaCampaigns — Cambon (headings), Inter (body), Jura (labels) */
-  @font-face{font-family:'Cambon';src:url('assets/fonts/Cambon-Bold.ttf') format('truetype');font-weight:400 800;font-style:normal;font-display:swap;}
-  @font-face{font-family:'Cambon';src:url('assets/fonts/Cambon-BoldItalic.ttf') format('truetype');font-weight:400 800;font-style:italic;font-display:swap;}
-  :root{
-    --display:'Cambon', Georgia, 'Times New Roman', serif;
-    --body:'Inter', system-ui, sans-serif;
-    --label:'Jura', system-ui, sans-serif;
-
-    /* Colour — drawn from the Aarian logo */
-    --ink:#23262B;
-    --ink-soft:#3C444D;
-    --muted:#66707A;
-    --paper:#FBFCFD;
-    --surface:#F1F4F8;
-    --line:#E2E7EE;
-    --line-soft:#EDF1F6;
-    --blue:#3C6CB4;      /* brand blue — lead */
-    --blue-deep:#2C5290;
-    --lav:#A890C0;       /* lavender — human accent */
-    --lav-deep:#846BA8;
-    --sky:#90B4D8;       /* sky blue — support */
-    --navy:#1C2E49;      /* deep brand navy — dark sections */
-
-    --wrap:1160px;
-    --gutter:clamp(20px,5vw,64px);
-  }
-
-  *{box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{
-    margin:0;
-    background:var(--paper);
-    color:var(--ink);
-    font-family:var(--body);
-    font-size:17px;
-    line-height:1.6;
-    -webkit-font-smoothing:antialiased;
-    text-rendering:optimizeLegibility;
-  }
-  a{color:inherit;text-decoration:none}
-  img{max-width:100%;display:block}
-  h1,h2,h3{font-family:var(--display);font-weight:600;line-height:1.05;letter-spacing:-0.02em;margin:0}
-  p{margin:0}
-
-  .wrap{max-width:var(--wrap);margin:0 auto;padding-inline:var(--gutter)}
-  .eyebrow{
-    font-family:var(--label);font-weight:600;font-size:12px;letter-spacing:0.22em;
-    text-transform:uppercase;color:var(--muted);
-  }
-
-  /* ---------- header ---------- */
-  header{
-    position:sticky;top:0;z-index:50;
-    background:color-mix(in srgb, var(--paper) 88%, transparent);
-    backdrop-filter:blur(10px);
-    border-bottom:1px solid var(--line-soft);
-  }
-  .nav{display:flex;align-items:center;justify-content:space-between;height:74px}
-  .brand img{height:30px;width:auto}
-  .brand{display:flex;align-items:center;gap:10px}
-  .menu{display:flex;align-items:center;gap:30px}
-  .menu a{font-size:15px;color:var(--ink-soft);font-weight:500;transition:color .2s}
-  .menu a:hover{color:var(--blue-deep)}
-  .btn{
-    display:inline-flex;align-items:center;gap:9px;
-    font-family:var(--body);font-weight:600;font-size:15px;
-    padding:11px 20px;border-radius:999px;border:1px solid transparent;
-    transition:transform .18s ease, background .2s, color .2s, border-color .2s;
-    cursor:pointer;
-  }
-  .btn-primary{background:var(--ink);color:var(--paper)}
-  .btn-primary:hover{background:var(--blue-deep);transform:translateY(-1px)}
-  .btn-ghost{border-color:var(--line);color:var(--ink)}
-  .btn-ghost:hover{border-color:var(--ink);transform:translateY(-1px)}
-  .nav-toggle{display:none}
-
-  /* ---------- hero ---------- */
-  .hero{padding-top:clamp(56px,9vw,110px);padding-bottom:clamp(56px,9vw,104px)}
-  .hero .id-line{
-    display:inline-flex;align-items:center;gap:14px;margin-bottom:30px;
-    font-family:var(--display);font-weight:600;font-size:clamp(15px,1.7vw,18px);
-    letter-spacing:-0.01em;
-  }
-  .id-line .human{color:var(--lav)}
-  .id-line .tech{color:var(--blue)}
-  .id-line .link{
-    width:46px;height:1.5px;background:linear-gradient(90deg,var(--lav),var(--blue));
-    position:relative;opacity:0;transform:scaleX(0);transform-origin:left;
-    animation:draw .9s .3s cubic-bezier(.2,.7,.2,1) forwards;
-  }
-  .id-line .link::after{
-    content:"";position:absolute;right:-3px;top:50%;translate:0 -50%;
-    width:6px;height:6px;border-radius:50%;background:var(--blue);
-  }
-  @keyframes draw{to{opacity:1;transform:scaleX(1)}}
-
-  .hero h1{
-    font-size:clamp(2.5rem,6vw,4.5rem);font-weight:600;
-    max-width:15ch;margin-bottom:30px;
-  }
-  .hero-lede{
-    font-size:clamp(1.05rem,1.5vw,1.28rem);color:var(--ink-soft);
-    max-width:60ch;line-height:1.62;margin-bottom:38px;
-  }
-  .hero-cta{display:flex;flex-wrap:wrap;gap:14px}
-  .fade-up{opacity:0;transform:translateY(16px);animation:fadeUp .8s ease forwards}
-  .d1{animation-delay:.15s}.d2{animation-delay:.3s}.d3{animation-delay:.45s}
-  @keyframes fadeUp{to{opacity:1;transform:none}}
-
-  /* ---------- positioning strip ---------- */
-  .strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--surface)}
-  .strip .wrap{padding-block:clamp(46px,6vw,74px)}
-  .strip p{
-    font-family:var(--display);font-weight:500;letter-spacing:-0.015em;
-    font-size:clamp(1.5rem,3.2vw,2.35rem);line-height:1.22;max-width:24ch;color:var(--ink);
-  }
-  .strip .accent{color:var(--lav)}
-
-  /* ---------- section frame ---------- */
-  section.block{padding-block:clamp(64px,8vw,110px)}
-  .sec-head{max-width:56ch;margin-bottom:52px}
-  .sec-head .eyebrow{display:block;margin-bottom:18px}
-  .sec-head h2{font-size:clamp(2rem,3.6vw,2.9rem)}
-  .sec-head p{margin-top:18px;color:var(--muted);font-size:1.08rem;max-width:52ch}
-
-  /* audience cards */
-  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
-  .card{
-    background:var(--paper);border:1px solid var(--line);border-radius:16px;
-    padding:34px 30px 32px;transition:transform .2s ease, border-color .2s, box-shadow .2s;
-  }
-  .card:hover{transform:translateY(-3px);border-color:var(--lav);box-shadow:0 18px 40px -28px rgba(21,38,46,.4)}
-  .card .tag{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--blue-deep);font-weight:600}
-  .card h3{font-size:1.32rem;margin:14px 0 12px;letter-spacing:-0.01em}
-  .card p{color:var(--muted);font-size:1rem}
-
-  /* what we do — sequence */
-  .phases{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--line);border-radius:16px;overflow:hidden}
-  .phase{padding:38px 32px;position:relative;background:var(--paper)}
-  .phase + .phase{border-left:1px solid var(--line)}
-  .phase .num{
-    font-family:var(--display);font-weight:600;font-size:14px;color:var(--blue);
-    display:inline-flex;align-items:center;gap:10px;margin-bottom:20px;
-  }
-  .phase .num::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--blue)}
-  .phase h3{font-size:1.24rem;margin-bottom:14px;letter-spacing:-0.01em}
-  .phase p{color:var(--muted);font-size:1rem}
-  .phase::after{
-    content:"";position:absolute;top:44px;right:-5px;width:9px;height:9px;
-    border-top:1.5px solid var(--line);border-right:1.5px solid var(--line);
-    transform:rotate(45deg);background:var(--paper);z-index:2;
-  }
-  .phase:last-child::after{display:none}
-
-  /* advise & deliver */
-  .deliver{background:var(--navy);color:var(--paper)}
-  .deliver .eyebrow{color:#9fb2b8}
-  .deliver h2{font-size:clamp(2rem,3.8vw,3rem);max-width:18ch;margin-bottom:22px}
-  .deliver .lede{color:#C5D0D3;max-width:54ch;font-size:1.12rem;line-height:1.62}
-  .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:58px}
-  .pillar{border-top:1px solid rgba(255,255,255,.16);padding-top:22px}
-  .pillar h3{font-size:1.18rem;color:#fff;margin-bottom:10px}
-  .pillar p{color:#A9B8BC;font-size:.98rem}
-  .pillar .mk{width:26px;height:3px;border-radius:2px;background:var(--lav);margin-bottom:20px}
-  .pillar:nth-child(2) .mk{background:var(--blue)}
-  .pillar:nth-child(3) .mk{background:linear-gradient(90deg,var(--lav),var(--blue))}
-
-  /* services journey */
-  .journey{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--paper)}
-  .step{display:grid;grid-template-columns:auto 1fr;gap:30px;padding:32px 34px;align-items:start}
-  .step + .step{border-top:1px solid var(--line)}
-  .step-n{font-family:var(--display);font-weight:700;font-size:1.5rem;color:var(--blue);line-height:1;padding-top:4px}
-  .step-body h3{font-size:1.28rem;margin-bottom:8px;letter-spacing:-0.01em}
-  .step-body > p{color:var(--ink-soft);font-size:1.03rem;margin-bottom:16px;max-width:56ch}
-  .chips{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0}
-  .chips li{
-    font-size:.86rem;font-weight:500;color:var(--blue-deep);
-    background:color-mix(in srgb, var(--blue) 8%, var(--paper));
-    border:1px solid color-mix(in srgb, var(--blue) 20%, var(--paper));
-    padding:6px 13px;border-radius:999px;
-  }
-  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;margin-top:34px;padding-top:32px;border-top:1px solid var(--line)}
-  .stat .n{font-family:var(--display);font-weight:700;font-size:clamp(1.7rem,3vw,2.3rem);color:var(--ink);letter-spacing:-0.02em}
-  .stat .l{color:var(--muted);font-size:.92rem;margin-top:8px;max-width:22ch}
-
-  /* platform spotlight */
-  .feature-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,6vw,80px);align-items:center}
-  .feature-copy .eyebrow{display:block;margin-bottom:18px}
-  .feature-copy h2{font-size:clamp(1.9rem,3.4vw,2.7rem);max-width:16ch;margin-bottom:20px}
-  .feature-copy p{color:var(--muted);font-size:1.08rem;max-width:46ch}
-  .feature-link{display:inline-flex;align-items:center;gap:8px;margin-top:26px;font-weight:600;color:var(--blue-deep)}
-  .feature-link:hover .arw{transform:translateX(3px)}
-  .feature-panel{
-    background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:14px 30px;
-  }
-  .proof{list-style:none;margin:0;padding:0}
-  .proof li{display:flex;gap:18px;align-items:flex-start;padding:24px 0}
-  .proof li + li{border-top:1px solid var(--line)}
-  .proof .pm{flex:0 0 auto;width:11px;height:11px;border-radius:50%;margin-top:6px}
-  .proof .pm.warm{background:var(--lav)}
-  .proof .pm.cool{background:var(--blue)}
-  .proof strong{font-family:var(--display);font-weight:600;font-size:1.08rem;display:block;margin-bottom:4px}
-  .proof p{color:var(--muted);font-size:.97rem}
-
-  /* case studies */
-  .cases{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
-  .case{
-    border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--paper);
-    transition:transform .2s,box-shadow .2s;display:flex;flex-direction:column;
-  }
-  .case:hover{transform:translateY(-3px);box-shadow:0 20px 44px -30px rgba(21,38,46,.45)}
-  .case .band{height:6px;background:linear-gradient(90deg,var(--lav),var(--blue))}
-  .case .body{padding:28px 28px 30px;display:flex;flex-direction:column;flex:1}
-  .case .kind{font-size:12px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);font-weight:600}
-  .case h3{font-size:1.18rem;margin:12px 0 12px;letter-spacing:-0.01em}
-  .case p{color:var(--muted);font-size:.98rem;flex:1}
-  .case .more{margin-top:20px;font-weight:600;color:var(--blue-deep);font-size:.95rem;display:inline-flex;gap:7px;align-items:center}
-  .case:hover .more .arw{transform:translateX(3px)}
-  .arw{transition:transform .2s}
-
-  /* contact band */
-  .contact{background:var(--surface);border-top:1px solid var(--line)}
-  .contact .wrap{padding-block:clamp(64px,8vw,104px);text-align:center}
-  .contact .gday{font-family:var(--display);color:var(--lav-deep);font-size:1.05rem;font-weight:600;margin-bottom:16px}
-  .contact h2{font-size:clamp(2.1rem,4.6vw,3.4rem);max-width:16ch;margin:0 auto 22px}
-  .contact p{color:var(--muted);max-width:46ch;margin:0 auto 34px;font-size:1.1rem}
-
-  /* footer */
-  footer{background:var(--navy);color:#B9C6CA}
-  footer .wrap{padding-block:64px}
-  .foot-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px}
-  footer img{height:30px;margin-bottom:18px}
-  footer .blurb{font-size:.96rem;color:#93A4A9;max-width:34ch}
-  .foot-col h4{font-family:var(--body);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#7E9096;margin:0 0 16px;font-weight:600}
-  .foot-col a{display:block;font-size:.97rem;color:#B9C6CA;margin-bottom:11px;transition:color .2s}
-  .foot-col a:hover{color:#fff}
-  .foot-bot{display:flex;justify-content:space-between;align-items:center;margin-top:52px;padding-top:26px;border-top:1px solid rgba(255,255,255,.12);font-size:.9rem;color:#7E9096}
-  .foot-bot a{color:#7E9096}
-  .foot-bot a:hover{color:#fff}
-
-  /* ---------- responsive ---------- */
-  @media (max-width:900px){
-    .grid-3,.phases,.pillars,.cases{grid-template-columns:1fr}
-    .phase + .phase{border-left:none;border-top:1px solid var(--line)}
-    .phase::after{display:none}
-    .feature-grid{grid-template-columns:1fr;gap:36px}
-    .stats{grid-template-columns:repeat(2,1fr);gap:22px}
-    .step{padding:26px 24px;gap:20px}
-    .foot-top{grid-template-columns:1fr 1fr;gap:32px}
-    .menu{display:none}
-    .nav-toggle{display:inline-flex}
-  }
-  @media (max-width:560px){
-    .foot-top{grid-template-columns:1fr}
-    .foot-bot{flex-direction:column;gap:12px;align-items:flex-start}
-    .hero-cta .btn{flex:1 1 auto;justify-content:center}
-  }
-
-  @media (prefers-reduced-motion:reduce){
-    *{animation:none !important;transition:none !important;scroll-behavior:auto}
-    .fade-up,.id-line .link{opacity:1;transform:none}
-  }
-  a:focus-visible,.btn:focus-visible{outline:2.5px solid var(--blue);outline-offset:3px;border-radius:4px}
-</style>
+<meta name="description" content="Aarian Health: accelerating brand growth through software innovation, AI and healthcare expertise, across pharmacy, patient and HCP engagement.">
+<link rel="stylesheet" href="assets/css/site.css">
+<link rel="stylesheet" href="assets/css/aarian.css">
 </head>
 <body>
 
-<header>
-  <div class="wrap nav">
+<header class="site-header" id="siteHeader">
+  <div class="header-shell">
     <a class="brand" href="/" aria-label="Aarian Health home">
       <img src="assets/img/aarian-logo.png" alt="Aarian Health">
     </a>
-    <nav class="menu" aria-label="Primary">
+    <nav class="main-nav" id="mainNav" aria-label="Primary">
+      <a href="#platforms">Platforms</a>
       <a href="#services">Services</a>
       <a href="#work">Case Studies</a>
-      <a href="#platforms">Platforms</a>
       <a href="#insights">Insights</a>
-      <a href="#about">About</a>
+      <a href="#about">About us</a>
     </nav>
-    <a class="btn btn-primary" href="#contact">Start a conversation</a>
-    <button class="btn btn-ghost nav-toggle" aria-label="Open menu">Menu</button>
+    <div class="nav-actions">
+      <a class="btn btn-primary" href="#contact">Contact Us</a>
+    </div>
   </div>
 </header>
 
-<main>
-  <!-- HERO -->
+<main id="main">
   <section class="hero">
-    <div class="wrap">
-      <div class="id-line fade-up">
-        <span class="human">Human Connection,</span>
-        <span class="link" aria-hidden="true"></span>
-        <span class="tech">Tech-Powered Change</span>
+    <img class="hero-watermark" src="assets/img/aarian-mark.png" alt="" aria-hidden="true">
+    <div class="hero-inner shell-wide">
+      <div>
+        <h1>Human Connection,<br><span class="em">Tech-Powered Change</span></h1>
+        <p class="lede">We partner with healthcare brands, professional bodies, not-for-profits and research groups, bringing human insight and technology together to design and deliver meaningful engagement.</p>
+        <a class="link-arrow hero-link" href="#contact">G'day! Ready to chat? <span class="arr">&rarr;</span></a>
       </div>
-      <h1 class="fade-up d1">Strategy and delivery for the teams and organisations shaping healthcare in Australia.</h1>
-      <p class="hero-lede fade-up d2">Whether you are a brand launching a product, an organisation extending your reach, or a research group needing real world engagement, the hard part is the same: connecting with pharmacists, healthcare professionals and patients in a way that is meaningful, compliant and provable. We partner with commercial teams, professional bodies and research organisations to design and deliver programs that create genuine engagement, and evidence you can stand behind.</p>
-      <div class="hero-cta fade-up d3">
-        <a class="btn btn-primary" href="#contact">Start a conversation</a>
-        <a class="btn btn-ghost" href="#work">See our work</a>
+      <div class="hero-visual">
+        <img class="hero-img" src="https://aarianstorage.s3.ap-southeast-2.amazonaws.com/Mask_group_2_fda8cd73ed.png" alt="Human hand and technology connecting">
       </div>
     </div>
   </section>
 
-  <!-- POSITIONING STRIP -->
-  <div class="strip">
-    <div class="wrap">
-      <p>Most launches are not lost on the idea. They are lost in the <span class="accent">execution.</span></p>
-    </div>
-  </div>
-
-  <!-- WHO WE HELP -->
-  <section class="block" id="audiences">
-    <div class="wrap">
-      <div class="sec-head">
-        <span class="eyebrow">Who we work with</span>
-        <h2>Different goals, one hard part in common.</h2>
-        <p>We work across the commercial and the mission led, wherever meaningful engagement with pharmacy, patients and healthcare professionals is the thing standing between a plan and a result.</p>
+  <section class="section dark aar" id="services">
+    <div class="shell-wide">
+      <div class="section-head center">
+        <p class="eyebrow center">What we do</p>
+        <h2>Acquisition, Activation and Retention, <span class="em">designed and delivered.</span></h2>
+        <p class="lede">We don't just advise on the funnel. We design it and run it, across pharmacy, patient and HCP engagement.</p>
       </div>
-      <div class="grid-3">
-        <div class="card">
-          <span class="tag">Commercial teams</span>
-          <h3>Sales &amp; marketing leaders</h3>
-          <p>Marketing managers, sales managers and key account managers carrying a launch, a number and a deadline. We turn strategy into documented in store action across the pharmacy channel.</p>
+      <div class="aar-grid">
+        <div class="aar-mark">
+          <img src="assets/img/aarian-mark.png" alt="Aarian Health">
         </div>
-        <div class="card">
-          <span class="tag">Professional bodies</span>
-          <h3>Associations &amp; peak bodies</h3>
-          <p>Organisations such as ADEA and the ACBRD that need to reach and engage their communities. We extend that reach and deliver programs built to withstand scrutiny.</p>
-        </div>
-        <div class="card">
-          <span class="tag">Research</span>
-          <h3>Research organisations</h3>
-          <p>Groups that need real world engagement, recruitment or evidence generated across pharmacy and healthcare settings, captured cleanly and compliantly.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- WHAT WE DO -->
-  <section class="block" style="padding-top:0">
-    <div class="wrap">
-      <div class="sec-head">
-        <span class="eyebrow">What we do</span>
-        <h2>Acquisition. Activation. Retention.</h2>
-        <p>Three stages of the funnel, each with its own job. We work across all three, and the through line between them is where growth compounds.</p>
-      </div>
-      <div class="phases">
-        <div class="phase">
-          <span class="num">Acquisition</span>
-          <h3>Looking to win new patients or customers?</h3>
-          <p>The thing that keeps brand managers awake at night. Whether it is a launch that needs traction, a product that needs speed, or a legacy brand labelled a cash cow, our strength is showing what the pharmacy channel can do for your acquisition funnel.</p>
-        </div>
-        <div class="phase">
-          <span class="num">Activation</span>
-          <h3>Got attention but not action?</h3>
-          <p>You can lead an elephant to water, but you cannot make it drink. Devices are placed yet usage is low, sales lag, repeat purchases stall. We weave technology into your plans to unlock the X factor and turn attention into action, while keeping medical and compliance comfortable.</p>
-        </div>
-        <div class="phase">
-          <span class="num">Retention</span>
-          <h3>How do you keep them coming back?</h3>
-          <p>The holy grail. We design bespoke digital solutions that build long term engagement, where portfolio transitions and loyalty matter most. The hardest to earn, the most rewarding when it is done right, and it makes for some great slides at the annual review.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SERVICES: THE ENGAGEMENT -->
-  <section class="block services-journey" id="services" style="background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
-    <div class="wrap">
-      <div class="sec-head">
-        <span class="eyebrow">The engagement</span>
-        <h2>From retail ready to national growth.</h2>
-        <p>Great brands rarely fail on the idea. They fail on retailer readiness, buyer access, launch planning or in store execution. We take a brand through all four, then stay on to deliver.</p>
-      </div>
-      <div class="journey">
-        <div class="step">
-          <span class="step-n">01</span>
-          <div class="step-body">
-            <h3>Retail readiness</h3>
-            <p>Get the brand ready before it ever meets a buyer, so the first meeting is the right one.</p>
-            <ul class="chips">
-              <li>Proposition review</li><li>Competitive analysis</li><li>Pricing &amp; margin</li><li>Packaging review</li><li>Retail presentation</li>
-            </ul>
+        <div class="aar-list">
+          <div class="aar-item">
+            <h3>Acquisition</h3>
+            <p class="q">Looking to win new patients or customers?</p>
+            <p>The thing that keeps brand managers awake at night. Whether it is a launch that needs traction, a product that needs speed, or a legacy brand labelled a cash cow, we design the acquisition play and deliver it, showing what the pharmacy channel can do for your funnel.</p>
           </div>
-        </div>
-        <div class="step">
-          <span class="step-n">02</span>
-          <div class="step-body">
-            <h3>Ranging</h3>
-            <p>Get in front of the right buyers and successfully ranged, on the strength of real relationships.</p>
-            <ul class="chips">
-              <li>Retail strategy</li><li>Buyer introductions</li><li>Meeting preparation</li><li>Negotiation support</li>
-            </ul>
+          <div class="aar-item">
+            <h3>Activation</h3>
+            <p class="q">Got attention but not action?</p>
+            <p>You can lead an elephant to water, but you cannot make it drink. When devices are placed yet usage lags and repeat purchases stall, we weave technology and pharmacist conversations into your plan to unlock the X factor, while keeping medical and compliance comfortable.</p>
           </div>
-        </div>
-        <div class="step">
-          <span class="step-n">03</span>
-          <div class="step-body">
-            <h3>Launch</h3>
-            <p>Land it in store, not just on the shelf, with the first ninety days planned and supported.</p>
-            <ul class="chips">
-              <li>Launch strategy</li><li>Promotional planning</li><li>Field force planning</li><li>First 90 day support</li>
-            </ul>
-          </div>
-        </div>
-        <div class="step">
-          <span class="step-n">04</span>
-          <div class="step-body">
-            <h3>Growth</h3>
-            <p>Keep it moving and compounding, from national execution through to portfolio transitions.</p>
-            <ul class="chips">
-              <li>National execution</li><li>Retention</li><li>Portfolio transitions</li><li>Ongoing growth management</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="stats">
-        <div class="stat"><div class="n">25+ yrs</div><div class="l">growing brands in pharmacy and FMCG</div></div>
-        <div class="stat"><div class="n">$80M</div><div class="l">Bioglan scaled to, more than 5&times;</div></div>
-        <div class="stat"><div class="n">2,500+</div><div class="l">pharmacies in the execution network</div></div>
-        <div class="stat"><div class="n">200k+</div><div class="l">verified in store tasks delivered</div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ADVISE & DELIVER -->
-  <section class="block deliver">
-    <div class="wrap">
-      <span class="eyebrow">Why Aarian</span>
-      <h2 style="margin-top:16px">We design the strategy and own the delivery.</h2>
-      <p class="lede">Plenty of firms will hand you a deck. Fewer will stand beside you when it meets a pharmacy counter. Aarian does both, because we bring an insider's feel for Australia's healthcare ecosystem, compliance built into every program, and our own technology to deliver it at scale.</p>
-      <div class="pillars">
-        <div class="pillar">
-          <div class="mk"></div>
-          <h3>Ecosystem knowledge</h3>
-          <p>GPs, specialists, nurses, pharmacists, assistants, banner groups and individual stores. We understand how the system connects and how to engage each part of it.</p>
-        </div>
-        <div class="pillar">
-          <div class="mk"></div>
-          <h3>Compliance at the core</h3>
-          <p>Version control, documentation, adverse event reporting and governance built in, so every program passes the headline test.</p>
-        </div>
-        <div class="pillar">
-          <div class="mk"></div>
-          <h3>Technology that delivers</h3>
-          <p>Proprietary platforms and AI that make engagement measurable, with dashboards that prove value at every review.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PLATFORM SPOTLIGHT -->
-  <section class="block platform-feature" id="platforms">
-    <div class="wrap feature-grid">
-      <div class="feature-copy">
-        <span class="eyebrow">The platform behind the advice</span>
-        <h2>PharmaCampaigns is how we deliver, not just advise.</h2>
-        <p>Strategy is only worth as much as its execution. PharmaCampaigns is our own execution layer inside community pharmacy, the reason we can stand behind a plan all the way to the counter and show, store by store, that it happened.</p>
-        <a class="feature-link" href="https://pharmacampaigns.com.au" target="_blank" rel="noopener">Explore PharmaCampaigns <span class="arw">&rarr;</span></a>
-      </div>
-      <div class="feature-panel">
-        <ul class="proof">
-          <li><span class="pm warm"></span><div><strong>Reach every store</strong><p>Including the pharmacies a field rep would never physically visit.</p></div></li>
-          <li><span class="pm cool"></span><div><strong>Pharmacist led interventions</strong><p>Structured prompts at the moments that matter, clinical judgement kept intact.</p></div></li>
-          <li><span class="pm warm"></span><div><strong>Verified, time stamped execution</strong><p>Photo confirmed planograms and completion rates you can put in a review deck.</p></div></li>
-          <li><span class="pm cool"></span><div><strong>A coordinator on the phone</strong><p>Campaign coordinators drive participation, so no pharmacy is doing it alone.</p></div></li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- CASE STUDIES -->
-  <section class="block" id="work" style="background:var(--surface);border-top:1px solid var(--line)">
-    <div class="wrap">
-      <div class="sec-head">
-        <span class="eyebrow">Selected work</span>
-        <h2>Engaged to make it land.</h2>
-      </div>
-      <div class="cases">
-        <div class="case">
-          <div class="band"></div>
-          <div class="body">
-            <span class="kind">Customer acquisition</span>
-            <h3>Accelerating acquisition in the pharmacy channel</h3>
-            <p>A large healthcare multinational needed to speed new customer acquisition and build share in community pharmacy, while making life easier for its sales reps.</p>
-            <span class="more">Read the story <span class="arw">&rarr;</span></span>
-          </div>
-        </div>
-        <div class="case">
-          <div class="band"></div>
-          <div class="body">
-            <span class="kind">App launch</span>
-            <h3>Launching an app to healthcare professionals</h3>
-            <p>A leading healthcare company set out to launch an app that would help HCPs better support their patients and save them time in the process.</p>
-            <span class="more">Read the story <span class="arw">&rarr;</span></span>
-          </div>
-        </div>
-        <div class="case">
-          <div class="band"></div>
-          <div class="body">
-            <span class="kind">Patient support</span>
-            <h3>A pharmacist led device support program</h3>
-            <p>A medical device manufacturer needed every patient trained to use its device safely and effectively, delivered consistently at the pharmacy counter.</p>
-            <span class="more">Read the story <span class="arw">&rarr;</span></span>
+          <div class="aar-item">
+            <h3>Retention</h3>
+            <p class="q">How do you keep them coming back?</p>
+            <p>The holy grail. We design and run bespoke digital solutions that build long term engagement, where portfolio transitions and loyalty matter most. The hardest to earn, the most rewarding when it is done right, and the one that makes for some great slides at the annual review.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
-
-  <!-- CONTACT -->
-  <section class="contact" id="contact">
-    <div class="wrap">
-      <div class="gday">G'day. Ready to chat?</div>
-      <h2>Tell us what you're launching.</h2>
-      <p>We'll show you how it lands, across the pharmacies, clinicians and patients that matter to your result.</p>
-      <a class="btn btn-primary" href="mailto:hello@aarianhealth.com.au">Start a conversation</a>
+  <section class="section cloud contact-cta" id="contact">
+    <div class="shell">
+      <p class="eyebrow center">Start a conversation</p>
+      <h2>Let's talk about what you're trying to move.</h2>
+      <p class="lede">Tell us the goal, and we'll show you how we would design and deliver it.</p>
+      <a class="btn btn-primary btn-lg" href="mailto:hello@aarianhealth.com.au">Contact Us <span class="arr">&rarr;</span></a>
     </div>
   </section>
 </main>
 
-<footer id="about">
-  <div class="wrap">
-    <div class="foot-top">
-      <div>
-        <img src="assets/img/aarian-logo-white.png" alt="Aarian Health">
-        <p class="blurb">A delivery consultancy for healthcare launches and growth. Human connection, tech-powered change.</p>
-      </div>
-      <div class="foot-col">
-        <h4>Company</h4>
-        <a href="#about">About us</a>
-        <a href="#work">Case studies</a>
-        <a href="#insights">Insights</a>
-        <a href="#contact">Contact</a>
-      </div>
-      <div class="foot-col">
-        <h4>What we do</h4>
-        <a href="#services">Acquisition</a>
-        <a href="#services">Activation</a>
-        <a href="#services">Retention</a>
-        <a href="#services">Learning &amp; education</a>
-      </div>
-      <div class="foot-col">
-        <h4>Get in touch</h4>
-        <a href="mailto:hello@aarianhealth.com.au">hello@aarianhealth.com.au</a>
-        <a href="https://www.linkedin.com/company/aarianhealth/" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="#contact">Norwest, NSW</a>
-      </div>
+<footer class="site-footer">
+  <div class="shell-wide foot-inner">
+    <div class="foot-brand">
+      <img src="assets/img/aarian-logo-white.png" alt="Aarian Health">
+      <p>Human Connection, Tech-Powered Change.</p>
     </div>
-    <div class="foot-bot">
-      <span>© Aarian Health 2026. All rights reserved.</span>
-      <a href="https://www.linkedin.com/company/aarianhealth/" target="_blank" rel="noopener">LinkedIn</a>
-    </div>
+    <nav class="foot-nav" aria-label="Footer">
+      <a href="#services">What we do</a>
+      <a href="#work">Case Studies</a>
+      <a href="#insights">Insights</a>
+      <a href="#about">About us</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+  <div class="shell-wide foot-bottom">
+    <span>&copy; Aarian Health 2026. All rights reserved.</span>
+    <a href="https://www.linkedin.com/company/aarianhealth/" target="_blank" rel="noopener">LinkedIn</a>
   </div>
 </footer>
 
