@@ -37,8 +37,8 @@
         <p class="lede">We help the people behind chronic metabolic health connect with patients, consumers and clinicians, bringing human insight and technology together to drive adoption and lasting engagement.</p>
         <a class="link-arrow hero-link" href="#contact">G'day! Ready to chat? <span class="arr">&rarr;</span></a>
       </div>
-      <div class="hero-visual">
-        <img class="hero-img" src="https://aarianstorage.s3.ap-southeast-2.amazonaws.com/Mask_group_2_fda8cd73ed.png" alt="Human hand and technology connecting">
+      <div class="hero-visual hero-visual-img">
+        <img class="hero-img" src="assets/img/hero.png" alt="Human connection meeting technology">
       </div>
     </div>
   </section>
@@ -50,27 +50,37 @@
         <h2>A deliberately narrow field, <span class="em">and we own it.</span></h2>
         <p class="lede">The precision is the point. We work in one part of healthcare deeply, rather than everywhere thinly.</p>
       </div>
-      <div class="play-grid">
-        <div class="play-col play-col-wide">
-          <span class="play-tick"></span>
-          <h3>Our category</h3>
-          <p class="sub">Products</p>
-          <p>OTC, OTX and Rx-to-OTC switches. Nutrition and supplements, foods for special medical purposes, and sports nutrition. Plus the fast-growing world of metabolic health and weight, including GLP-1 support.</p>
-          <p class="sub">Devices</p>
-          <p>Consumer medical devices: CGM, glucose and sleep monitoring.</p>
+      <div class="spectrum reveal">
+        <div class="sp-track">
+          <div class="sp-zone sp-side">
+            <span class="sp-end">FMCG</span>
+            <span class="sp-eg">soaps, detergents, groceries</span>
+          </div>
+          <div class="sp-zone sp-mid">
+            <span class="sp-pin">We play here</span>
+            <span class="sp-mid-title">The consumer-health middle</span>
+            <span class="sp-mid-list">OTC &middot; OTX &middot; Rx-to-OTC switches &middot; nutrition &amp; supplements &middot; foods for special medical purposes &middot; sports nutrition &middot; metabolic &amp; weight, incl. GLP-1 support &middot; consumer devices: CGM, glucose &amp; sleep</span>
+          </div>
+          <div class="sp-zone sp-side">
+            <span class="sp-end">Prescription pharma</span>
+            <span class="sp-eg">Rx-only medicines</span>
+          </div>
         </div>
-        <div class="play-col">
+        <p class="sp-caption">Not prescription pharma. Not FMCG. <span class="em">We work the middle, and we own it.</span></p>
+      </div>
+
+      <div class="play-grid play-grid-2">
+        <div class="play-col reveal">
           <span class="play-tick"></span>
           <h3>Our focus</h3>
           <p>Chronic metabolic health, and the people who support it: CDEs, dietitians, endocrinologists, practice nurses, GPs and specialists.</p>
         </div>
-        <div class="play-col">
+        <div class="play-col reveal">
           <span class="play-tick"></span>
           <h3>Who we work with</h3>
           <p>Consumer health and device brands, professional bodies, not-for-profits and research groups, each with their own goal: brands and devices want adoption and lifecycle growth; bodies want to engage industry in ways that serve their members.</p>
         </div>
       </div>
-      <p class="boundary center">Not prescription pharma. Not FMCG. <span class="em">We work the consumer-health middle.</span></p>
     </div>
   </section>
 
@@ -109,17 +119,17 @@
           <img src="assets/img/aarian-mark.png" alt="Aarian Health">
         </div>
         <div class="aar-list">
-          <div class="aar-item">
+          <div class="aar-item reveal">
             <h3>Acquisition</h3>
             <p class="q">Looking to win new patients or users?</p>
             <p>The thing that keeps brand managers awake at night. Whether it is a launch that needs traction, a product that needs speed, or a category that has gone quiet, we design the acquisition play and deliver it, finding the patients and users who should be on your product and bringing them in.</p>
           </div>
-          <div class="aar-item">
+          <div class="aar-item reveal">
             <h3>Activation</h3>
             <p class="q">Got attention but not action?</p>
             <p>You can lead an elephant to water, but you cannot make it drink. When a product is in hand yet usage lags and behaviour does not change, we weave human conversation and technology together to unlock the X factor and turn intent into real, sustained use, while keeping medical and compliance comfortable.</p>
           </div>
-          <div class="aar-item">
+          <div class="aar-item reveal">
             <h3>Retention</h3>
             <p class="q">How do you keep them coming back?</p>
             <p>The holy grail. For lifelong conditions, retention is everything. We design and run the data and lifecycle work that keeps patients and users engaged over the long haul, the hardest to earn, the most rewarding when it is done right, and the one that makes for some great slides at the annual review.</p>
@@ -158,5 +168,8 @@
   </div>
 </footer>
 
+<script>
+(function(){var els=document.querySelectorAll(".reveal");if(!("IntersectionObserver" in window)){els.forEach(function(e){e.classList.add("in")});return;}var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add("in");io.unobserve(x.target);}});},{threshold:.12,rootMargin:"0px 0px -8% 0px"});els.forEach(function(e){io.observe(e)});})();
+</script>
 </body>
 </html>
