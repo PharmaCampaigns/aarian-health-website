@@ -76,7 +76,12 @@
 .contact-cta .lede{ margin:0 auto 26px; }
 
 /* ---- footer ---- */
-.site-footer{ background:#14151A; color:#93A0B4; }
+.site-footer{
+  background:
+    radial-gradient(720px 440px at 16% 0%, rgba(96,120,205,.16), transparent 62%),
+    linear-gradient(160deg,#1B2C4A 0%,#15223B 60%,#101A2E 100%);
+  color:#A6B3C8;
+}
 .foot-inner{ display:flex; justify-content:space-between; gap:40px; flex-wrap:wrap; padding-block:48px 26px; }
 .foot-brand img{ height:34px; margin-bottom:14px; display:block; }
 .foot-brand p{ color:#8894A6; font-size:.95rem; max-width:32ch; margin:0; }
