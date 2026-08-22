@@ -59,4 +59,27 @@
   /* ---- Current year in footers ---- */
   var y = document.querySelectorAll("[data-year]");
   for (var j = 0; j < y.length; j++) y[j].textContent = new Date().getFullYear();
+
+  /* ---- Footer newsletter (Netlify form): inline thank-you ----
+     Progressive enhancement: POST via fetch and swap in a thank-you.
+     If fetch is unavailable or fails, fall back to the native submit
+     (Netlify's own success page). */
+  var nf = document.querySelector(".ft-news-form");
+  if (nf && window.fetch) {
+    nf.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var body = new URLSearchParams(new FormData(nf)).toString();
+      fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: body
+      })
+        .then(function () {
+          var thanks = nf.parentNode.querySelector(".ft-thanks");
+          nf.hidden = true;
+          if (thanks) thanks.hidden = false;
+        })
+        .catch(function () { nf.submit(); });
+    });
+  }
 })();

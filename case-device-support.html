@@ -10,6 +10,7 @@
 <meta property="og:type" content="article">
 <link rel="stylesheet" href="assets/css/site.css">
 <link rel="stylesheet" href="assets/css/aarian.css">
+<link rel="icon" type="image/png" sizes="64x64" href="assets/img/favicon.png">
 <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
@@ -18,7 +19,7 @@
 <header class="site-header" id="siteHeader">
   <div class="header-shell">
     <a class="brand" href="index.html" aria-label="Aarian Health home">
-      <img src="assets/img/aarian-logo.png" alt="Aarian Health" width="150" height="44">
+      <img src="assets/img/logo-horizontal.png" alt="Aarian Health" width="206" height="44">
     </a>
     <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mainNav" aria-label="Menu"><span></span><span></span></button>
     <nav class="main-nav" id="mainNav" aria-label="Primary">
@@ -113,33 +114,62 @@
 </main>
 
 <footer class="site-footer">
-  <div class="shell-wide foot-inner">
-    <div class="foot-brand">
-      <img src="assets/img/aarian-logo-white.png" alt="Aarian Health">
-      <p>A healthcare delivery consultancy. Human Connection, Tech-Powered Change.</p>
-    </div>
-    <div class="foot-cols">
-      <nav class="foot-nav" aria-label="Footer">
-        <span class="foot-h">Explore</span>
-        <a href="services.html">Services</a>
-        <a href="work.html">Case Studies</a>
-        <a href="insights.html">Insights</a>
-        <a href="about.html">About us</a>
-      </nav>
-      <div class="foot-contact">
-        <span class="foot-h">Get in touch</span>
+  <div class="shell">
+    <section class="pct-newsletter" aria-labelledby="ft-news-heading">
+      <div class="pct-copy">
+        <p class="pct-eyebrow">From Aarian Health</p>
+        <h2 class="pct-heading" id="ft-news-heading">Where adoption and engagement are heading next</h2>
+        <p class="pct-sub">We share what the shifts in chronic metabolic health mean for consumer-health brands and professional bodies. Sharp, practical, and worth the inbox space.</p>
+      </div>
+      <div class="pct-actions">
+        <form class="pct-form ft-news-form" name="newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="newsletter">
+          <p hidden><label>Don&rsquo;t fill this out if you&rsquo;re human: <input name="bot-field"></label></p>
+          <input type="email" name="email" placeholder="you@company.com" aria-label="Email address" required>
+          <button type="submit" class="pct-submit">Subscribe</button>
+        </form>
+        <p class="pct-consent ft-thanks" role="status" hidden>Thanks &mdash; you&rsquo;re on the list. We&rsquo;ll be in touch.</p>
+        <p class="pct-consent">We will only email you Aarian Health updates.</p>
+        <a class="pct-linkedin" href="https://www.linkedin.com/company/aarianhealth" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+          Follow us on LinkedIn
+        </a>
+      </div>
+    </section>
+    <div class="pct-footer-hr" aria-hidden="true"></div>
+
+    <div class="footer-grid">
+      <div class="fbrand">
+        <img src="assets/img/logo-horizontal.png" alt="Aarian Health">
+        <p>Human insight and technology, brought together for consumer-health brands and professional bodies in chronic metabolic health.</p>
+      </div>
+      <div>
+        <h4>What We Do</h4>
+        <ul>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="work.html">Case Studies</a></li>
+          <li><a href="insights.html">Insights</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="contact">
+        <h4>Contact</h4>
         <p>Infinity Park, Suite 3.10<br>7 Maitland Place, Norwest NSW 2153</p>
         <p><a href="mailto:hello@aarianhealth.com.au">hello@aarianhealth.com.au</a></p>
-        <p><a href="https://www.linkedin.com/company/aarianhealth/" target="_blank" rel="noopener">LinkedIn &#8599;</a></p>
+        <p><a href="https://www.linkedin.com/company/aarianhealth" rel="noopener" target="_blank">LinkedIn &#8599;</a></p>
       </div>
     </div>
-  </div>
-  <div class="shell-wide foot-bottom">
-    <span>&copy; Aarian Health <span data-year>2026</span>. All rights reserved.</span>
-    <span class="links">
-      <a href="contact.html">Contact</a>
-      <a href="https://www.linkedin.com/company/aarianhealth/" target="_blank" rel="noopener">LinkedIn</a>
-    </span>
+
+    <div class="legal">
+      <span>&copy; 2026 Aarian Health Pty Ltd. All rights reserved.</span>
+    </div>
+
   </div>
 </footer>
 
