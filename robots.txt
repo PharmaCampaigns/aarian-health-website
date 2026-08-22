@@ -1,0 +1,8 @@
+# ==========================================================
+#  STAGING ONLY — blocks all crawling.
+#  BEFORE DNS CUTOVER: replace this file with
+#  robots.production.txt and remove the X-Robots-Tag block
+#  from netlify.toml. See CUTOVER.md.
+# ==========================================================
+User-agent: *
+Disallow: /

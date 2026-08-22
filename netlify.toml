@@ -1,2 +1,24 @@
 [build]
   publish = "."
+
+# ==========================================================
+#  STAGING ONLY — remove this whole [[headers]] block at
+#  cutover, or the production site stays out of Google.
+#  See CUTOVER.md.
+# ==========================================================
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Frame-Options = "SAMEORIGIN"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"

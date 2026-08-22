@@ -1,0 +1,40 @@
+# ============================================================
+#  Aarian Health — redirect map
+#  Legacy URLs from the GitHub-hosted site + the interim
+#  Netlify build. Specific rules first, wildcards last.
+# ============================================================
+
+# --- Culled platform pages -----------------------------------
+# PharmaCampaigns and KnowDiabetes hand their authority to the
+# live properties. The rest fold into Services.
+/platforms/pharma-campaigns    https://pharmacampaigns.com.au/             301!
+/platforms/know-diabetes       https://knowdiabetes.aarianhealth.com.au/   301!
+/platforms/clinic-diabetes     /services                                   301!
+/platforms/smaart-hub          /services                                   301!
+/platforms/*                   /services                                   301!
+/platforms                     /services                                   301!
+
+# --- Broken template links on the old site -------------------
+# Unresolved variables that leaked into real hrefs and got crawled.
+/platformsId                   /services                                   301!
+/serviceId                     /services                                   301!
+/null                          /                                           301!
+
+# --- Legacy case study slugs ---------------------------------
+/case-studies/accelerating-customer-acquisition-via-smart-hub                          /case-studies/pharmacy-customer-acquisition                     301!
+/case-studies/acquiring-customer-data-and-lifecycle-marketing-via-smaart-hub           /case-studies/pharmacy-data-capture-lifecycle-marketing         301!
+/case-studies/pharmacist-supporting-patients-to-use-a-medical-device-safely-and-effectively  /case-studies/pharmacist-led-device-support                301!
+/case-studies/app-launch-to-hc-ps-the-experience-program-approach                      /case-studies/hcp-app-launch-experience-program                 301!
+
+# --- Interim Netlify build paths ------------------------------
+# Anything shared while the staging site was live.
+/about                         /about-us                                   301!
+/contact                       /contact-us                                 301!
+/work                          /case-studies                               301!
+/case-acquisition              /case-studies/pharmacy-customer-acquisition                 301!
+/case-lifecycle                /case-studies/pharmacy-data-capture-lifecycle-marketing     301!
+/case-device-support           /case-studies/pharmacist-led-device-support                 301!
+/case-app-launch               /case-studies/hcp-app-launch-experience-program             301!
+/insight-execution-gap         /insights/execution-gap                     301!
+/insight-pharmacy-channel      /insights/pharmacy-channel                  301!
+/insight-compliance            /insights/compliance                        301!
