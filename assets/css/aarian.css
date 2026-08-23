@@ -5,15 +5,13 @@
   --ink:#586070;         /* Aarian slate — headings + nav */
   --body:#6B7482;        /* Aarian body slate-grey */
   --mute:#8A93A0;
-  --blue:#4A6FB4;        /* Aarian link blue */
-  --blue-strong:#3B5EA0;
-  --blue-deep:#3E67AE;
-  --plum:#846BA8;        /* remap accent to Aarian lavender */
-  --plum-strong:#6E5794;
+  --blue:#4577BB;        /* Aarian link blue */
+  --blue-strong:#375F96;
+  --blue-deep:#2A4A74;
 }
 
 /* eyebrow dash reads blue -> lavender (Aarian) */
-.eyebrow::before{ background:linear-gradient(90deg, var(--blue), var(--plum)); }
+.eyebrow::before{ background:linear-gradient(90deg, var(--blue), var(--lav-deep)); }
 
 /* hero image framed like the live Aarian site */
 .hero-visual{
@@ -86,13 +84,13 @@
         from site.css (base gives the light #FBFCFE bg + top hairline);
         here we only retint the accents to Aarian's palette ---- */
 .site-footer .pct-newsletter{
-  --pct-blue:var(--blue); --pct-pharmacy-blue:var(--blue); --pct-wine:var(--plum);
+  --pct-blue:var(--blue); --pct-pharmacy-blue:var(--blue); --pct-wine:var(--lav-deep);
   --pct-ink:var(--ink); --pct-body:var(--body); --pct-muted:var(--mute); --pct-grey:var(--mute);
 }
 /* eyebrow + Subscribe button carry the site's blue -> lavender gradient */
 .site-footer .pct-eyebrow{
   background:var(--lux-gradient); -webkit-background-clip:text; background-clip:text;
-  color:var(--plum); -webkit-text-fill-color:transparent;
+  color:var(--lav-deep); -webkit-text-fill-color:transparent;
 }
 .site-footer .pct-submit{ background:var(--lux-gradient); }
 .site-footer .pct-submit:hover{ background:var(--lux-gradient); filter:brightness(1.06); }
@@ -103,7 +101,7 @@
 .play-col{ background:var(--paper); border:1px solid var(--line); border-radius:16px;
   padding:28px 26px 26px; }
 .play-tick{ display:block; width:30px; height:4px; border-radius:2px;
-  background:linear-gradient(90deg,var(--blue),var(--plum)); margin-bottom:18px; }
+  background:linear-gradient(90deg,var(--blue),var(--lav-deep)); margin-bottom:18px; }
 .play-col h3{ font-family:var(--serif); font-size:1.22rem; color:var(--ink); margin:0 0 10px; }
 .play-col p{ color:var(--body); font-size:.98rem; line-height:1.62; margin:0; }
 
@@ -208,7 +206,7 @@
 .sm-label{ display:block; font-size:11px; color:#9DB4DA; margin-bottom:6px; letter-spacing:.02em; }
 .sm-bar{ display:block; height:6px; border-radius:6px; background:rgba(255,255,255,.09); overflow:hidden; }
 .sm-bar i{ display:block; height:100%; border-radius:6px;
-  background:linear-gradient(90deg,var(--blue),var(--plum)); animation:barfill 5s ease-in-out infinite; }
+  background:linear-gradient(90deg,var(--blue),var(--lav-deep)); animation:barfill 5s ease-in-out infinite; }
 @keyframes barfill{ 0%{width:18%} 55%{width:88%} 100%{width:18%} }
 
 @media (prefers-reduced-motion: reduce){
