@@ -1142,3 +1142,24 @@ p { margin: 0 0 1em; }
 }
 .pctc-linkedin:hover{border-color:var(--pctc-blue);background:rgba(62,123,187,.06);}
 .pctc-linkedin svg{width:18px;height:18px;fill:var(--pctc-blue);}
+
+
+/* ---- Legal documents (privacy policy, terms) ------------------------- */
+.legaldoc { max-width: 760px; }
+.legaldoc p { color: var(--body); line-height: 1.75; margin: 0 0 1.15em; }
+.legaldoc h2 {
+  font-size: clamp(1.15rem, 1.8vw, 1.4rem);
+  margin: 2.2em 0 .6em;
+  padding-top: 1.4em;
+  border-top: 1px solid var(--line-soft);
+}
+.legaldoc h2:first-of-type { margin-top: 1.4em; }
+.legaldoc h3 { font-size: 1.02rem; margin: 1.6em 0 .5em; color: var(--plum); }
+.legaldoc ul { margin: 0 0 1.15em; padding-left: 1.15em; }
+.legaldoc li { color: var(--body); line-height: 1.7; margin-bottom: .4em; }
+.legaldoc a { color: var(--blue); text-decoration: underline; text-underline-offset: 2px; }
+.legaldoc a:hover { color: var(--plum); }
+.legaldoc-address {
+  font-style: normal; line-height: 1.8; color: var(--body);
+  border-left: 3px solid var(--blue); padding: 4px 0 4px 16px; margin-top: 1.4em;
+}
