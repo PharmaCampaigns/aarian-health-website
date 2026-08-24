@@ -70,7 +70,12 @@
 
 <main id="main">
   <section class="hero">
-    <img class="hero-watermark" src="/assets/img/brandmark.png" alt="" aria-hidden="true">
+    <div class="hero-media" aria-hidden="true">
+      <video autoplay loop muted playsinline poster="/assets/media/hero-loop-poster.jpg">
+        <source src="/assets/media/hero-loop.webm" type="video/webm">
+        <source src="/assets/media/hero-loop.mp4" type="video/mp4">
+      </video>
+    </div>
     <div class="hero-inner shell-wide">
       <div>
         <p class="eyebrow">Acquisition, activation and retention for Australian healthcare brands</p>
@@ -86,8 +91,8 @@
           <span><i class="tick">&#10003;</i> Working with brands and professional bodies since 2019</span>
         </div>
       </div>
-      <div class="hero-visual hero-visual-img">
-        <img class="hero-img" src="/assets/img/hero.png" alt="Human connection meeting technology">
+      <div class="hero-wave">
+        <img src="/assets/img/hero-wave.png" alt="" aria-hidden="true">
       </div>
     </div>
   </section>
@@ -273,6 +278,11 @@ if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches)
       img.src = v.getAttribute('poster'); img.alt = 'Aarian Health';
       m.replaceChildren(img);
     }
+  });
+  document.querySelectorAll('.hero-media video').forEach(function (v) {
+    v.removeAttribute('autoplay');
+    v.pause();
+    v.load();                                       /* rewind so the poster shows */
   });
 }
 </script>
