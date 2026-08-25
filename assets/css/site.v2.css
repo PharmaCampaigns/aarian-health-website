@@ -1186,3 +1186,19 @@ p { margin: 0 0 1em; }
 .hero-wave-still { display: block; }
 .hero-wave.alpha-ok .hero-wave-video { display: block; }
 .hero-wave.alpha-ok .hero-wave-still { display: none; }
+
+
+/* ---- The influence web -------------------------------------------------- */
+.web-figure { margin: 0 auto; max-width: 1020px; }
+.web-svg { display: block; width: 100%; height: auto; overflow: visible; }
+.web-core { font-family: var(--sans); font-weight: 650; font-size: 15px; fill: #fff; }
+.web-label { font-family: var(--sans); font-weight: 550; font-size: 13.5px; fill: var(--body); }
+.web-figure figcaption { margin-top: 6px; text-align: center; font-size: .88rem; color: var(--mute); }
+.web-notes { margin-top: 46px; gap: 30px; }
+.web-notes h3 { font-family: var(--sans); font-weight: 650; font-size: 1.02rem; margin-bottom: 8px; color: var(--blue-deep); }
+.web-notes p { font-size: .93rem; line-height: 1.62; margin: 0; }
+@media (max-width: 860px) {
+  .web-label { font-size: 17px; }
+  .web-core { font-size: 19px; }
+  .web-notes { grid-template-columns: 1fr; gap: 26px; }
+}
