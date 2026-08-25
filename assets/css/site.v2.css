@@ -1198,9 +1198,20 @@ p { margin: 0 0 1em; }
 .web-notes h3 { font-family: var(--sans); font-weight: 650; font-size: 1.02rem; margin-bottom: 8px; color: var(--blue-deep); }
 .web-notes p { font-size: .93rem; line-height: 1.62; margin: 0; }
 @media (max-width: 860px) {
-  .web-label { font-size: 17px; }
-  .web-core { font-size: 19px; }
+  /* SVG text scales with the viewBox, so the narrower the figure the smaller
+     the labels render. 20 units is the largest that still fits inside the
+     1000 unit viewBox without the widest label overhanging. */
+  .web-label { font-size: 20px; }
+  .web-core { font-size: 24px; }
   .web-notes { grid-template-columns: 1fr; gap: 26px; }
+}
+@media (max-width: 720px) {
+  /* Below this the diagram would shrink to about 6px labels. Hold it at a
+     readable width and let the figure scroll rather than shrink further. */
+  .web-figure { overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch; }
+  .web-svg { min-width: 700px; }
+  /* the caption sits inside the scrolling figure, so pin it or it slides away */
+  .web-figure figcaption { position: sticky; left: 0; width: 100%; }
 }
 
 .web-halo { transform-origin: 50% 50%; animation: webHaloBreathe 11s ease-in-out infinite; }
