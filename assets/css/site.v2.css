@@ -1259,7 +1259,12 @@ p { margin: 0 0 1em; }
   -webkit-backdrop-filter: blur(2px); backdrop-filter: blur(2px);
 }
 @media (max-width: 940px) {
-  .spec-rail { display: none; }
-  .spec-row { grid-template-columns: 1fr; gap: 26px; }
-  .spec-core { max-width: none; order: -1; }
+  .spec-rail {
+    left: 50%; right: auto; top: 2%; bottom: 2%; width: 2px; height: auto;
+    transform: translateX(-50%);
+    background: linear-gradient(180deg, rgba(69,119,187,0) 0%, var(--line) 12%, var(--lav) 38%, var(--lav) 62%, var(--line) 88%, rgba(69,119,187,0) 100%);
+  }
+  .spec-row { grid-template-columns: 1fr; gap: 26px; justify-items: center; }
+  .spec-core { max-width: none; width: 100%; }
+  .spec-side { background: var(--cloud); border-radius: 999px; padding: 12px 20px; }
 }
