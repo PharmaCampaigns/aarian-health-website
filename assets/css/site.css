@@ -1172,3 +1172,17 @@ p { margin: 0 0 1em; }
 .hero-wave { justify-self: end; width: 100%; max-width: 430px; }
 .hero-wave img { display: block; width: 100%; height: auto; }
 @media (max-width: 940px) { .hero-wave { max-width: 320px; justify-self: center; } }
+
+/* ---- Hero wave: slow drift + breathe, two periods so it never reads as a loop ---- */
+.hero-wave { animation: waveDrift 13s ease-in-out infinite; will-change: transform; }
+.hero-wave img, .hero-wave video { transform-origin: 50% 55%; animation: waveBreathe 19s ease-in-out infinite; will-change: transform; }
+@keyframes waveDrift { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+@keyframes waveBreathe { 0%, 100% { transform: scale(1) rotate(-.5deg); } 50% { transform: scale(1.025) rotate(.5deg); } }
+@media (prefers-reduced-motion: reduce) { .hero-wave, .hero-wave img, .hero-wave video { animation: none; } }
+
+/* ---- Hero wave: still PNG by default; the alpha video only shows once it proves
+       it can play, so any failure degrades to the static wave, never to a gap ---- */
+.hero-wave-video { display: none; width: 100%; height: 100%; object-fit: contain; }
+.hero-wave-still { display: block; }
+.hero-wave.alpha-ok .hero-wave-video { display: block; }
+.hero-wave.alpha-ok .hero-wave-still { display: none; }

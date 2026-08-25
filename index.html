@@ -92,7 +92,10 @@
         </div>
       </div>
       <div class="hero-wave">
-        <img src="/assets/img/hero-wave.png" alt="" aria-hidden="true">
+        <video class="hero-wave-video" autoplay loop muted playsinline>
+          <source src="/assets/media/hero-wave.webm" type="video/webm">
+        </video>
+        <img class="hero-wave-still" src="/assets/img/hero-wave.png" alt="" aria-hidden="true">
       </div>
     </div>
   </section>
@@ -285,6 +288,20 @@ if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches)
     v.load();                                       /* rewind so the poster shows */
   });
 }
+
+/* The still PNG is the default. Only opt in to the alpha video where it can actually
+   play: every browser on iOS is WebKit, and WebKit ignores WebM alpha, which would
+   render the wave as a black rectangle. A failed load reverts to the still too. */
+(function () {
+  var w = document.querySelector('.hero-wave');
+  if (!w) return;
+  var ua = navigator.userAgent;
+  var isSafari = (/Safari/.test(ua) && !/Chrome|Chromium|Android|Edg/.test(ua)) || /iPhone|iPad|iPod/.test(ua);
+  var reduced = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!isSafari && !reduced) w.classList.add('alpha-ok');
+  var v = w.querySelector('.hero-wave-video');
+  if (v) v.addEventListener('error', function () { w.classList.remove('alpha-ok'); }, true);
+})();
 </script>
 <script src="/assets/js/site.js" defer></script>
 </body>
